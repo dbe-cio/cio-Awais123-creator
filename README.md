@@ -23,7 +23,7 @@ You should see:
 - requirements.txt
 - figs/rice.png
 
-#Instructions to create and activate any Conda environment
+# Instructions to create and activate any Conda environment
 ```bash
 conda create -n awais-code-task python=3.10 -y
 conda activate awais-code-task```
