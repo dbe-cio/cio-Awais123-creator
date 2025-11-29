@@ -8,7 +8,7 @@
 - Find one center (seed) per each grain and then I used watershed to split touching grains
 - I gave each grain a unique color (evenly spaced hues) and saved the result as figs/rice_coloured.png
 - **Final Grain Count:70 rice grains**
-- **Completeness note: I turned parameters to avoid over splitting and to keep small true grains. The result looks complete for this image, but there maybe a few edge cases where tiny touching grains could be missed. the settings are easy to adjust**
+- **Completeness note: I tuned parameters to avoid over splitting and to keep small true grains. The result looks complete for this image, but there maybe a few edge cases where tiny touching grains could be missed. the settings are easy to adjust**
 ---
   
 
