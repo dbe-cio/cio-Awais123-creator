@@ -1,5 +1,5 @@
-# Awais Cheema CIO Programming Test: Rice Grain Counting
-# My Solution to the Problem
+# Awais Cheema - CIO Programming Test: Rice Grain Counting
+# My Solution 
 
 1) **What I did**
 - I loaded the 'file figs/rice.png'
@@ -9,13 +9,14 @@
 - I gave each grain a unique color (evenly spaced hues) and saved the result as figs/rice_coloured.png
 - **Final Grain Count:70 rice grains**
 - **Completeness note: I turned parameters to avoid over splitting and to keep small true grains. The result looks complete for this image, but there maybe a few edge cases where tiny touching grains could be missed. the settings are easy to adjust**
+---
   
 
 2) **How to run the code from GitHub**
-# Get the code and open the folder
+### Get the code and open the folder
 ```bash
 git clone https://github.com/dbe-cio/cio-Awais123-creator
-cd cio-Awais123-creator```
+cd cio-Awais123-creator
 You should see:
 - README.md
 - awais code task.ipynb
@@ -26,7 +27,7 @@ You should see:
 # Instructions to create and activate any Conda environment
 ```bash
 conda create -n awais-code-task python=3.10 -y
-conda activate awais-code-task```
+conda activate awais-code-task
 
 # Instructions for installing all dependencies (make all the imports in Cell 1)
 - Option A: 'requirements.txt' is in the repo, then use 
@@ -38,7 +39,7 @@ pip install numpy scipy scikit-image opencv-python-headless matplotlib ```
 
 # Run the notebook
 ```bash 
-jupyter lab ```
+jupyter lab 
 
 - Open the notebook in jupyter lab
 - Select awais-code-task kernel
