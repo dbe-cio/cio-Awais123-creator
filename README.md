@@ -59,14 +59,14 @@ python count_and_colour_rice.py
 
 # Reproducibility
 I used:
-python 3.10
-numpy
-scipy
-scikit-image
-opencv-python-headless
-matplotlib
+- python 3.10
+- numpy
+- scipy
+- scikit-image
+- opencv-python-headless
+- matplotlib
 
-- A **requirements.txt** has been provided so the result can be produced with:
+- A **requirements.txt** has been provided so you can install everything with:
 ```bash
 pip install -r requirements.txt
 ```
