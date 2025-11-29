@@ -4,7 +4,7 @@
 1) **What I did**
 - I loaded the file 'figs/rice.png'
 - Then turned it into a grayscale and blurred it slightly, so that tiny specks could be removed
-- Build a clean black/white mask: Keeps grains, remove dust, fill tiny holes, close small gaps 
+- Build a clean black/white mask: Keeps grains, removes dust, fills tiny holes, closes small gaps 
 - Find one center (seed) per each grain and then I used watershed to split touching grains
 - I gave each grain a unique color (evenly spaced hues) and saved the result as figs/rice_coloured.png
 - **Final Grain Count:70 rice grains**
