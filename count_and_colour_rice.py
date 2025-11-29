@@ -1,5 +1,4 @@
 #import necessary dependencies
-
 import os, numpy as np
 import matplotlib
 from matplotlib import pyplot as plt
@@ -20,15 +19,13 @@ IMG_OUT = "figs/rice_coloured_img.png"
 img= io.imread(IMG_IN)
 show(img, "original")
 
-#I am calling the image and us making a gray scale + a light blur
+#I am calling the image and making a gray scale + a light blur
 gray = img if img.ndim == 2 else color.rgb2gray(img)
 blur = filters.gaussian(gray, sigma=1.0)   #
 show(blur, "gray + blur")
 
 #Clear difference between rice and others
-
 otsu_threshold= filters.threshold_otsu(blur)
-
 binary = (blur > (otsu_threshold - 0.02)) #I introduced this fill in holes better
 
 #This step will remove dust and fill in the holes inside grains
@@ -37,9 +34,7 @@ binary = morphology.remove_small_holes(binary, area_threshold=80) #to fill in th
 
 #improved step to refurbish the smallest of gaps on the grain edges
 binary = morphology.binary_closing(binary, morphology.disk(1))
-
 show(binary, "binary mask")
-
 
 #Use a distance map, make a bigger window, use seeds to split the touching grains, introduce hte increase minimum distance between peaks and smoothing
 dist = ndi.distance_transform_edt(binary) #dist map
@@ -54,15 +49,12 @@ coords = feature.peak_local_max(
 seeds = np.zeros_like(dist, dtype=bool)#this will keep seeds only on rice
 seeds[tuple(coords.T)] = True
 markers = measure.label(seeds)  #this will turn the seeds into ids
-
 show(dist, "distance map")
 
 #Using watershed I am removing any small leftovers, I will also remove any small blobs. It will help me from aviding errors before I begin the count
-
 labels= segmentation.watershed(-dist, markers, mask=binary)
 
 #By looking at the image it is pretty obvious that the grains are much bigger than 80 pixel
-
 min_size_pixels = 60 #Small tweak from 80 to 60 to improve grain coloring
 labels = morphology.remove_small_objects(labels, min_size=min_size_pixels)
 
@@ -79,8 +71,6 @@ n = int(labels.max())
 h = np.linspace(0, 1, n, endpoint=False)
 hsv = np.stack ([h, np.ones(n), np.ones(n)], axis=1)
 colors = color.hsv2rgb(hsv) # originally some ricecorn grains were of the same color so now I am intorducng a robist code to keep each colored grain unique
-
-
 coloured = color.label2rgb(
     labels,
     image=img,
