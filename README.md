@@ -14,9 +14,10 @@
 
 2) **How to run the code from GitHub**
 ### Get the code and open the folder
-```bash
+```bash    
 git clone https://github.com/dbe-cio/cio-Awais123-creator
 cd cio-Awais123-creator
+```
 You should see:
 - README.md
 - awais code task.ipynb
@@ -28,18 +29,22 @@ You should see:
 ```bash
 conda create -n awais-code-task python=3.10 -y
 conda activate awais-code-task
+```
 
 # Instructions for installing all dependencies (make all the imports in Cell 1)
 - Option A: 'requirements.txt' is in the repo, then use 
 ```bash
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 - Option B :
 ```bash
-pip install numpy scipy scikit-image opencv-python-headless matplotlib ```
+pip install numpy scipy scikit-image opencv-python-headless matplotlib
+```
 
 # Run the notebook
 ```bash 
-jupyter lab 
+jupyter lab
+```
 
 - Open the notebook in jupyter lab
 - Select awais-code-task kernel
@@ -49,7 +54,8 @@ jupyter lab
 
 **To run as a script**
 ```bash
-python count_and_colour_rice.py ```
+python count_and_colour_rice.py
+```
 
 # Reproducibility
 I used:
@@ -62,7 +68,8 @@ matplotlib
 
 - A **requirements.txt** has been provided so the result can be produced with:
 ```bash
-pip install -r requirements.txt ```
+pip install -r requirements.txt
+```
 
   
 ---
