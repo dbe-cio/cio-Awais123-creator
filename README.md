@@ -12,7 +12,7 @@
 ---
   
 
-2) **How to run the code from GitHub**
+## 2) How to run the code from GitHub
 ### Get the code and open the folder
 ```bash    
 git clone https://github.com/dbe-cio/cio-Awais123-creator
