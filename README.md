@@ -2,7 +2,7 @@
 # My Solution 
 
 1) **What I did**
-- I loaded the 'file figs/rice.png'
+- I loaded the file 'figs/rice.png'
 - Then turned it into a grayscale and blurred it slightly, so that tiny specks could be removed
 - Build a clean black/white mask: Keeps grains, remove dust, fill tiny holes, close small gaps 
 - Find one center (seed) per each grain and then I used watershed to split touching grains
