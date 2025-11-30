@@ -14,7 +14,7 @@ def show(im, title="", cmap='gray'):
 IMG_IN = "figs/rice.png"
 IMG_OUT = "figs/rice_coloured_img.png"
 
-#The purpose of this command is to check the original picture
+#The purpose of this command is to check the original picture, To load & view
 #Use io  for this purpose
 img= io.imread(IMG_IN)
 show(img, "original")
@@ -24,9 +24,9 @@ gray = img if img.ndim == 2 else color.rgb2gray(img)
 blur = filters.gaussian(gray, sigma=1.0)   #
 show(blur, "gray + blur")
 
-#Clear difference between rice and others
+#Threshold to clean mask, Clear difference between rice and others
 otsu_threshold= filters.threshold_otsu(blur)
-binary = (blur > (otsu_threshold - 0.02)) #I introduced this fill in holes better
+binary = (blur > (otsu_threshold - 0.02)) #I introduced this to fill in holes better
 
 #This step will remove dust and fill in the holes inside grains
 binary = morphology.remove_small_objects(binary, min_size=30)
@@ -36,7 +36,7 @@ binary = morphology.remove_small_holes(binary, area_threshold=80) #to fill in th
 binary = morphology.binary_closing(binary, morphology.disk(1))
 show(binary, "binary mask")
 
-#Use a distance map, make a bigger window, use seeds to split the touching grains, introduce hte increase minimum distance between peaks and smoothing
+#Use a distance map, make a bigger window, use seeds to split the touching grains, this marks one point per grain so watershed can split touching grains
 dist = ndi.distance_transform_edt(binary) #dist map
 
 #I am deleting indices argument as this version of python was not accepting it.
@@ -70,15 +70,15 @@ count
 n = int(labels.max())
 h = np.linspace(0, 1, n, endpoint=False)
 hsv = np.stack ([h, np.ones(n), np.ones(n)], axis=1)
-colors = color.hsv2rgb(hsv) # originally some ricecorn grains were of the same color so now I am intorducng a robist code to keep each colored grain unique
+colors = color.hsv2rgb(hsv) # originally some ricecorn grains were of the same color so now I am intorducng a robust code to keep each colored grain unique
 coloured = color.label2rgb(
     labels,
     image=img,
-    colors=colors, #this step confirms that each grai is a unique color
+    colors=colors, #this step confirms that each grain is a unique color
     bg_label=0,
     kind='overlay',
     alpha=0.9
-) #label12rgb is from sckikit-image, I am using it to trun labeled grains into colors
+) #label12rgb is from sckikit-image, I am using it to run labeled grains into colors
 
 #Use io to save it
 IMG_OUT = "figs/rice_coloured.png"
