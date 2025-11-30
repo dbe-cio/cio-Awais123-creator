@@ -74,4 +74,4 @@ pip install -r requirements.txt
   
 ---
 
-If you paste that in, you fully satisfy Step 2 (unique colour per grain + saved output + final number + completeness note) and Step 3 (clear set up, env creation), dependency install, run instructions).
+If you paste that in, you fully satisfy Step 2 (unique colour per grain + saved output + final number + completeness note) and Step 3 (clear set up, env creation), dependency install, run instructions.
