@@ -70,7 +70,7 @@ count
 n = int(labels.max())
 h = np.linspace(0, 1, n, endpoint=False)
 hsv = np.stack ([h, np.ones(n), np.ones(n)], axis=1)
-colors = color.hsv2rgb(hsv) # originally some ricecorn grains were of the same color so now I am intorducng a robust code to keep each colored grain unique
+colors = color.hsv2rgb(hsv) # originally some ricecorn grains were of the same color so now I am introducng a robust code to keep each colored grain unique
 coloured = color.label2rgb(
     labels,
     image=img,
